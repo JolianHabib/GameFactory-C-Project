@@ -1,0 +1,134 @@
+Toys Factory
+3
+Dolls
+D0
+2
+11
+Plastic A 55
+900.000000
+777
+Carton A 54
+300.000000
+Toys
+T5
+2
+131
+Carton A 20
+1200.000000
+787
+Plastic D 149
+1000.000000
+Card Games
+C1
+2
+878
+Carton B 43
+700.000000
+444
+Plastic C 55
+800.000000
+4
+Jolian Habib
+211613526
+7500.000000
+Judeida
+10942
+7
+10##10##2021
+C1
+Sally Daeem
+213042443
+10000.000000
+Ibleen
+Alshamaly
+1
+25##03##2024
+D0
+Efaf Haj
+214456777
+3500.000000
+Haifa
+Hadar
+9
+25##07##2023
+T5
+Rachel Cohn
+871666555
+12000.000000
+Ber Shevaa
+Hotsot
+24
+23##03##2023
+D0
+7
+UNO
+166
+12.000000
+BoardGame
+Taki
+334
+13.000000
+BoardGame
+Barbie
+77
+29.000000
+ChildrensGame
+Teddy Bear
+54
+21.000000
+BabyGame
+Chess
+99
+34.000000
+ThinkingGame
+Rummikub
+43
+31.000000
+ThinkingGame
+Car
+19
+26.000000
+ChildrensGame
+3
+Aylla Sheri
+Keryat Ata
+76
+90
+ASDF
+2
+1000
+123
+Barbie
+77
+29.000000
+ChildrensGame
+1200
+222
+Teddy Bear
+54
+21.000000
+BabyGame
+Eldar Anna
+Keryat Motzkin
+Derkh Daddo
+2
+FGHJ
+1
+600
+200
+Chess
+99
+34.000000
+ThinkingGame
+Nina Yado
+Haifa
+Ben Guryon
+87
+NMBH
+1
+750
+343
+UNO
+166
+12.000000
+BoardGame

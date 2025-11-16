@@ -1,0 +1,15 @@
+# Ignore Visual Studio internal files
+.vs/
+Debug/
+Release/
+*.sdf
+*.opensdf
+*.user
+*.obj
+*.pdb
+*.ipch
+*.idb
+*.tlog
+*.exe
+*.log
+*.cache

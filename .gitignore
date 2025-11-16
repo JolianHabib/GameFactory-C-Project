@@ -1,0 +1,19 @@
+/5========================
+       Known Issues
+========================
+
+ Submitter Details:
+   - Alon Dvorkin, ID: 212925952
+   - Jolian Habib, ID: 211613526
+
+
+1. Version Details:
+   - Version: 1.0
+   - Course/Exercise: Software Engineering Project
+   - Description: The system is designed for managing both employees and shifts efficiently. It includes features for adding and removing employees and shifts, clocking in and out, printing shift schedules, and assigning employees to shifts. Users can be categorized into three types: Employees, Shift Managers, and Administrators. The system ensures secure access through usernames and passwords, and it customizes the menu options based on the user's role. This allows for tailored functionalities such as shift scheduling for Shift Managers and broader administrative controls for Administrators.
+
+
+2. Known Issues:
+   - Issue #1:
+   - print shifts:
+   - In the project documentation, it states that shifts should be printed based on three options: by day, by week, and by month. I didn’t understand the meaning of printing by week, so I solved the issue by allowing a specific date to be entered, and the weekly printout will be from the day the user entered up to one week. The same applies to the monthly printout.
