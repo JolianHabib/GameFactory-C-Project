@@ -190,6 +190,8 @@ Working with multiple interacting C modules
 ### 👤 Author
 
 Jolian Habib
-4th-year Software Engineering Student – Afeka College
+
+Software Engineering Student – Afeka College
+
 GitHub: https://github.com/JolianHabib
 ```
