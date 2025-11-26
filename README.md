@@ -74,7 +74,7 @@ The program supports:
 
 ### **1. Compile (Linux/Mac/WSL):**
 
-```bash
+bash
 gcc -o GameFactory *.c
 ./GameFactory
 2. Compile (Windows MinGW):
@@ -157,3 +157,4 @@ Working with multiple interacting C modules
 Jolian Habib
 4th-year Software Engineering Student – Afeka College
 GitHub: https://github.com/JolianHabib
+```
