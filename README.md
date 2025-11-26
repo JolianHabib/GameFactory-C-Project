@@ -1,187 +1,159 @@
-# Game Factory Management System
+# 🎮 GameFactory – Modular C Project
 
-This project is a C language console application that manages a **game factory**.  
-The system stores and manages information about workers, departments, machines, materials, customers and game orders, and allows the user to perform many operations on this data.
+A modular C-based system that simulates the management of a toy/game factory.  
+The project focuses on structured programming, dynamic memory management, and file-based data handling — built fully in C without external libraries.
 
-The project was written in pure C using structs, dynamic memory, pointers, linked lists and binary files.
+---
 
+## 📌 Project Overview
 
-## Main Features
+The GameFactory system models a real production environment with multiple components that interact together:
 
-The system allows the user to:
+- **Departments**  
+  Production, packaging, materials, workers, etc.
 
-- Add a **department** to the factory.
-- Add a **worker** to the factory (only if there is at least one department).
-- Add a **machine** to a specific department, by department code.
-- Add a **game** that the factory produces.
-- Add a **customer** to the factory.
-- Add a **game order** for an existing customer, by game serial number.
-- Delete a **worker** by ID number.
-- Delete a **game** by its serial number.
-- Delete a **customer** by his customer code.
-- Print **all factory data**: factory name, workers, departments and their machines, games, customers and their orders.
-- Print all **workers** in the factory.
-- Print all **departments** in the factory.
-- Print all **machines** in a specific department.
-- Print all **games** in the factory.
-- Print all **customers** in the factory.
-- Print all **orders** of a specific customer.
-- Print all **machines** in the factory.
-- Print all machines that use a **specific material**.
-- Print all workers that belong to a **specific department**.
-- Calculate and print the **monthly expenses** of the factory (workers’ salaries, department expenses, electricity, water, other expenses).
-- **Sort workers** by:
-  - name (lexicographic),
-  - salary,
-  - start date.
-- **Search workers** by:
-  - name,
-  - salary,
-  - start date (binary search).
+- **Workers**  
+  Each worker has an ID, name, role, department, and assigned tasks.
 
+- **Machines**  
+  Machines involved in building or assembling games, including their status and type.
 
-## Data Structures
+- **Materials**  
+  Raw materials required to build specific toys/games.
 
-The project is built around several main structs:
+- **Games / Products**  
+  Game catalog with properties such as ID, name, category, required materials, and production time.
 
-- `Material` – describes raw material used by machines  
-  - price per 1 kg  
-  - rank  
-  - material type (plastic, carton, wood, rubber, etc.)
+- **Customers & Orders**  
+  Customers can place orders, and the system validates stock, production flow, and availability.
 
-- `Machine` – describes a machine inside a department  
-  - serial number  
-  - `Material`  
-  - amount of material used per month (in kg)
+---
 
-- `Department` – describes a department in the factory  
-  - department name  
-  - unique department code (2 chars: first is a letter, second is a digit)  
-  - dynamic array of machines and number of machines
+## 🧩 Features
 
-- `Worker` – describes a worker in the factory  
-  - name  
-  - ID number (9 chars, unique)  
-  - monthly salary  
-  - address  
-  - start work date  
-  - pointer to the department where the worker works  
-  - department code
+### 🔧 1. Modular Architecture  
+The system is divided into multiple `.c` and `.h` files:  
+- `departments.c / departments.h`  
+- `workers.c / workers.h`  
+- `machines.c / machines.h`  
+- `materials.c / materials.h`  
+- `games.c / games.h`  
+- `orders.c / orders.h`  
+This separation demonstrates clean software architecture in C.
 
-- `Game` – describes a game that the factory produces  
-  - game name  
-  - unique serial number  
-  - price  
-  - game type (thinking game, kids game, baby game, chance game, board game, target game)
+### 📁 2. File Handling (Load & Save)  
+All data is read from and stored to files:  
+- workers list  
+- machines  
+- materials  
+- customer orders  
+- available games  
 
-- `GameOrder` – describes an order of a game by a customer  
-  - game  
-  - quantity  
-  - serial number of the order  
-  - total price (calculated from quantity and game price)
+The system loads them on startup and saves updates automatically.
 
-- `Customer` – describes a customer of the factory  
-  - name  
-  - address  
-  - unique customer code (4 capital letters)  
-  - linked list of the customer’s orders
+### 📊 3. Dynamic Data Structures  
+The project uses:
+- Dynamic arrays  
+- Structs  
+- Nested structs  
+- Pointers  
+- Linked relations between entities  
 
-- `Factory` – the main struct that contains everything  
-  - factory name  
-  - array of workers + number of workers  
-  - array of departments + number of departments  
-  - array of games + number of games  
-  - array of customers + number of customers
+### ⚙️ 4. Full Factory Workflow  
+The program supports:
+- Adding workers / machines / materials  
+- Searching & updating entities  
+- Adding new games  
+- Creating customer orders  
+- Checking inventory  
+- Assigning production tasks  
 
+---
 
-## Binary File Format (Material)
+## 🚀 How to Run
 
-The project also includes an example of **compressed binary storage** for the `Material` struct.
-
-`Material` is saved to a binary file using a packed format:
-
-- `type` (material type) – 1 bit  
-- `rank` – 1 bit  
-- `price` – 14 bits  
-
-After that, the `rank` character is written.
-
-This shows how to work with bit operations and compact binary formats in C.
-
-
-## Important Functions (Examples)
-
-Some of the important functions implemented in the project:
-
-### Worker
-
-- `isIDNumber` – checks if a given ID string belongs to a specific worker.
-- `findWorkerById` – searches an array of workers by ID and returns a pointer to the worker (or `NULL`).
-- `compareByName`, `compareBySalary`, `compareByDate` – comparison functions for sorting.
-- `checkDepartmentCodeForWorker` – checks if a worker belongs to a given department code.
-
-### Customer
-
-- `addOrder` – adds a new order to the customer (linked list).
-- `findGameOrderBySerialNumber` – finds an order by its serial number.
-
-### Machine
-
-- `showMachineByMaterial` – returns / prints the type of material used by the machine.
-- `getMachineExpensesPerMonth` – calculates the monthly expenses of a machine.
-
-### Department
-
-- `checkUniqueCode` – validates that department code is legal and unique.
-- `addMachine` – adds a machine to the department.
-- `findDepartmentByCode` – searches a department array by code.
-
-### Factory
-
-- `addCustomer`, `addDepartment`, `addWorker`, `addGame` – add entities to the factory.
-- `removeGame`, `removeWorker`, `removeCustomer` – delete entities from the factory.
-- `getDepartmentArrExpensesPerMonth` – calculates total expenses of the factory.
-- `sortWorkers` – sorts workers by chosen property (name, salary, date).
-- `findWorker` – searches workers by name, salary or date (binary search).
-- `showDepartmentInFactory` – prints all machines that work with a specific material.
-
-
-## Project Structure
-
-The code is split into header (`.h`) and source (`.c`) files, for example:
-
-- `Material.h`, `Material.c`
-- `Machine.h`, `Machine.c`
-- `Department.h`, `Department.c`
-- `Worker.h`, `Worker.c`
-- `Game.h`, `Game.c`
-- `GameOrder.h`, `GameOrder.c`
-- `Customer.h`, `Customer.c`
-- `Factory.h`, `Factory.c`
-- `Date.h`, `Date.c`
-- `Address.h`, `Address.c`
-- `main.c`
-
-Each header file uses `#pragma once` and contains the struct definition and function declarations.  
-Each `.c` file contains the implementation.
-
-
-## How to Build and Run
-
-### Visual Studio (Windows)
-
-1. Open the solution or create a new **Empty Project** in Visual Studio.
-2. Add all `.c` and `.h` files to the project (Source Files / Header Files).
-3. Make sure `main.c` is part of the project and contains the `main()` function.
-4. Place `Factory.txt` and `Factory.bin` in the project folder.
-5. Build the project: **Build → Build Solution**.
-6. Run the program: **Debug → Start Without Debugging** (or `Ctrl + F5`).
-
-### GCC (command line)
-
-If you use gcc:
+### **1. Compile (Linux/Mac/WSL):**
 
 ```bash
-gcc -Wall -std=c99 -o factory main.c Factory.c Worker.c Department.c \
-    Machine.c Material.c Game.c GameOrder.c Customer.c Date.c Address.c
-./factory
+gcc -o GameFactory *.c
+./GameFactory
+2. Compile (Windows MinGW):
+gcc -o GameFactory.exe *.c
+GameFactory.exe
+
+3. Using an IDE (CLion / CodeBlocks / VSCode)
+
+Create a new C project
+
+Copy all .c and .h files into the src folder
+
+Build & run
+
+🛠 Technologies Used
+
+C Language (ANSI C)
+
+Structs, pointers, dynamic memory
+
+Modular programming
+
+File I/O
+
+Header-based architecture
+
+📥 Folder Structure
+GameFactory/
+│
+├── departments.c / .h
+├── workers.c / .h
+├── games.c / .h
+├── materials.c / .h
+├── machines.c / .h
+├── orders.c / .h
+├── main.c
+└── data/
+    ├── workers.txt
+    ├── machines.txt
+    ├── materials.txt
+    ├── games.txt
+    └── orders.txt
+
+🧪 Example Capabilities
+
+Add a new worker to a specific department
+
+Assign a machine to a worker
+
+Add raw materials
+
+Check if you can build a game based on inventory
+
+Submit a customer order
+
+Update stock after production
+
+Save all changes to files
+
+📌 Academic Skills Demonstrated
+
+This project highlights key software engineering skills:
+
+Clean modular design
+
+Memory management
+
+Separation into functional modules
+
+Real-world modeling
+
+File-based database simulation
+
+Problem decomposition
+
+Working with multiple interacting C modules
+
+👤 Author
+
+Jolian Habib
+4th-year Software Engineering Student – Afeka College
+GitHub: https://github.com/JolianHabib
