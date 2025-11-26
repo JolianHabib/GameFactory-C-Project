@@ -77,11 +77,11 @@ The program supports:
 bash
 gcc -o GameFactory *.c
 ./GameFactory
-2. Compile (Windows MinGW):
+### **2. Compile (Windows MinGW):
 gcc -o GameFactory.exe *.c
 GameFactory.exe
 
-3. Using an IDE (CLion / CodeBlocks / VSCode)
+### **3. Using an IDE (CLion / CodeBlocks / VSCode)
 
 Create a new C project
 
@@ -89,7 +89,7 @@ Copy all .c and .h files into the src folder
 
 Build & run
 
-🛠 Technologies Used
+### **🛠 Technologies Used
 
 C Language (ANSI C)
 
@@ -97,11 +97,10 @@ Structs, pointers, dynamic memory
 
 Modular programming
 
-File I/O
-
 Header-based architecture
 
-📥 Folder Structure
+### **📥 Folder Structure
+```
 GameFactory/
 │
 ├── departments.c / .h
@@ -117,8 +116,8 @@ GameFactory/
     ├── materials.txt
     ├── games.txt
     └── orders.txt
-
-🧪 Example Capabilities
+```
+### **🧪 Example Capabilities
 
 Add a new worker to a specific department
 
@@ -134,7 +133,7 @@ Update stock after production
 
 Save all changes to files
 
-📌 Academic Skills Demonstrated
+### **📌 Academic Skills Demonstrated
 
 This project highlights key software engineering skills:
 
@@ -152,7 +151,7 @@ Problem decomposition
 
 Working with multiple interacting C modules
 
-👤 Author
+### **👤 Author
 
 Jolian Habib
 4th-year Software Engineering Student – Afeka College
