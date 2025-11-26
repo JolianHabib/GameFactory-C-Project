@@ -32,13 +32,22 @@ The GameFactory system models a real production environment with multiple compon
 ## 🧩 Features
 
 ### 🔧 1. Modular Architecture  
-The system is divided into multiple `.c` and `.h` files:  
-- `departments.c / departments.h`  
-- `workers.c / workers.h`  
-- `machines.c / machines.h`  
-- `materials.c / materials.h`  
-- `games.c / games.h`  
-- `orders.c / orders.h`  
+The system is divided into multiple `.c` and `.h` modules, each responsible for part of the factory logic:
+
+- `Address.c / Address.h` — Handles address details for customers and factory entities.
+- `Customer.c / Customer.h` — Manages customer information and interactions.
+- `Date.c / Date.h` — Utility for date handling (orders, timestamps, etc.).
+- `Department.c / Department.h` — Represents and manages factory departments.
+- `Factory.c / Factory.h` — Core factory logic and global data structures.
+- `FactoryFile.c / FactoryFile.h` — Handles loading and saving factory data to files.
+- `Game.c / Game.h` — Represents game objects and product details.
+- `GameOrder.c / GameOrder.h` — Manages customer game orders and order processing.
+- `General.c / General.h` — General shared utilities and helper functions.
+- `GeneralList.c / GeneralList.h` — Generic linked-list or array-based list structures.
+- `Machine.c / Machine.h` — Information and behaviors related to machines.
+- `Main.c / Main.h` — Main program entry point and application flow.
+- `Material.c / Material.h` — Raw materials and inventory management.
+
 This separation demonstrates clean software architecture in C.
 
 ### 📁 2. File Handling (Load & Save)  
@@ -103,19 +112,46 @@ Header-based architecture
 ```
 GameFactory/
 │
-├── departments.c / .h
-├── workers.c / .h
-├── games.c / .h
-├── materials.c / .h
-├── machines.c / .h
-├── orders.c / .h
-├── main.c
-└── data/
-    ├── workers.txt
-    ├── machines.txt
-    ├── materials.txt
-    ├── games.txt
-    └── orders.txt
+├── Address.c
+├── Address.h
+│
+├── Customer.c
+├── Customer.h
+│
+├── Date.c
+├── Date.h
+│
+├── Department.c
+├── Department.h
+│
+├── Factory.c
+├── Factory.h
+├── Factory.bin
+├── Factory.txt
+│
+├── FactoryFile.c
+├── FactoryFile.h
+│
+├── Game.c
+├── Game.h
+│
+├── GameOrder.c
+├── GameOrder.h
+│
+├── General.c
+├── General.h
+│
+├── GeneralList.c
+├── GeneralList.h
+│
+├── Machine.c
+├── Machine.h
+│
+├── Main.c
+├── Main.h
+│
+├── Material.c
+└── Material.h
 ```
 ### 🧪 Example Capabilities
 
